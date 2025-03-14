@@ -34,15 +34,15 @@ for line in lyrics:
     fill.fore_color.rgb = RGBColor(0, 0, 0)
 
     # creating textFrames 
-    left = top = Inches(1)
-    width = root.slide_width - Inches(2)
-    height = root.slide_height - Inches(2)
+    left = top = Inches(0.5)
+    width = root.slide_width - Inches(1)
+    height = root.slide_height - Inches(1)
     txBox = slide.shapes.add_textbox(left, top, 
                                  width, height) 
     tf = txBox.text_frame 
     p = tf.add_paragraph()
     p.text = line
-    p.font.size = Pt(55)
+    p.font.size = Pt(60)
     p.font.color.rgb = RGBColor(255, 255, 255)
     p.alignment = PP_ALIGN.CENTER
     tf.vertical_anchor =  MSO_ANCHOR.MIDDLE
