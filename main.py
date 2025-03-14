@@ -1,6 +1,6 @@
 from pathlib import Path
-from pptx import Presentation  
-from pptx.util import Inches, Pt 
+from pptx import Presentation
+from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN
 from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE
@@ -22,7 +22,7 @@ root.slide_width = Inches(13.33)
 root.slide_height = Inches(7.5)
 
 
-first_slide_layout = root.slide_layouts[6]  
+first_slide_layout = root.slide_layouts[6]
 
 # write slides line by line
 for line in lyrics:
@@ -33,23 +33,22 @@ for line in lyrics:
     fill.solid()
     fill.fore_color.rgb = RGBColor(0, 0, 0)
 
-    # creating textFrames 
-    left = top = Inches(0.5)
-    width = root.slide_width - Inches(1)
-    height = root.slide_height - Inches(1)
-    txBox = slide.shapes.add_textbox(left, top, 
-                                 width, height) 
-    tf = txBox.text_frame 
+    # creating textFrames
+    left = top = Inches(0.25)
+    width = root.slide_width - Inches(0.5)
+    height = root.slide_height - Inches(0.5)
+    txBox = slide.shapes.add_textbox(left, top, width, height)
+    tf = txBox.text_frame
     p = tf.add_paragraph()
     p.text = line
     p.font.size = Pt(60)
     p.font.color.rgb = RGBColor(255, 255, 255)
     p.alignment = PP_ALIGN.CENTER
-    tf.vertical_anchor =  MSO_ANCHOR.MIDDLE
+    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
     tf.word_wrap = True
 
     # tf.fit_text()
-    
+
 
 # output the ppt file
 root.save("output.pptx")
