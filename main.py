@@ -73,9 +73,6 @@ if __name__ == "__main__":
         "input_txt_file_path", type=Path, help="Path to the input lyrics text file."
     )
     parser.add_argument(
-        "--output_file_path", type=Path, help="Path to the output PowerPoint file."
-    )
-    parser.add_argument(
         "--font_size", type=float, default=60, help="Font size for the lyrics text, unit in Pt, defaults to 60."
     )
     parser.add_argument(
